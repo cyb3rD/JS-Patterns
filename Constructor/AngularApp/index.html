@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="script.js"></script>
+	<script src="Task.js"></script>
+	<title>Sample Angular TaskApp</title>
+</head>
+<body ng-app='sampleTaskManager'>
+	<h1>Task Manager</h1>
+	<div ng-controller='taskCtrl as ctrl'>
+		<div ng-repeat='task in ctrl.tasks'>
+			<input type='checkbox' ng-checked='task.completed' ng-click='task.complete'>
+			{{task.name}}
+		</div>
+	</div>
+
+</body>
+</html>
