@@ -1,25 +1,21 @@
-var task = {
-	title: 'My Sample task',
-	description: 'Sample task description'
-};
+// Constructor
+var Task = function(name) {
+	this.name = name;
+	this.completed = false;
+}
 
-Object.defineProperty(task, 'toString', {
-	value: function() {
-		return this.title + ' ' + this.description;
-	},
-	writeable: false,
-	enumerable: false,
-	configurable: true
-});
+// Encapsulate methods in prototype
+Task.prototype.complete = function() {
+	console.log('completing task: ' + this.name);
+	this.completed = true;
+}
 
-var urgentTask = Object.create(task);
-Object.defineProperty(urgentTask, 'toString', {
-	value: function() {
-		return this.title + ' ' + this.description + ' is URGENT!';
-	},
-	writeable: false,
-	enumerable: false,
-	configurable: true
-});
+Task.prototype.save = function() {
+	console.log('Saving task...');
+}
 
-console.log(urgentTask.toString());
+Task.prototype.printInfo = function() {
+	console.log('Task name: ' + this.name + ' ' + '| Task complete state: ' + this.completed );
+}
+
+module.exports = Task;
